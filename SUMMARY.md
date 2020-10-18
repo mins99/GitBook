@@ -8,6 +8,7 @@
 * [Spring boot](spring-boot/README.md)
   * [스프링 부트 시작하기](spring-boot/undefined.md)
   * [스프링 부트 테스트하기](spring-boot/undefined-1.md)
+  * [스프링 부트 배치](spring-boot/undefined-3.md)
 * [JAVA](java/README.md)
   * [Modern Java in Action](java/modern-java-in-action/README.md)
     * [Chapter05 스트림 활용](java/modern-java-in-action/chapter05.md)
