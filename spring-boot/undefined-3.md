@@ -48,15 +48,37 @@ public Job simpleJob() {
 
 * "simpleJob" 이라는 이름의 JobBuilder 생성 → \(simpleStep이라는 간단한 Step 인스턴스를 생성하여 반환하는 메서드를 매개변수로 사용\) → JobBuilder의 start 메서드로 SimpleJobBuilder를 리턴받고 → SimpleJobBuilder의 build 메서드를 호출하여 "simpleJob" 이라는 이름의 Job이 생성되어 반환 됨
 
-### 2. JobInstance
+### 1.1 JobInstance
 
 * 배치에서 Job이 실행될 때 하나의 Job 실행 단위. 어제와 오늘 실행한 각각의 Job을 JobInstance들이라고 할 수 있다.
 
-### 3. JobExecution
+### 1.2 JobExecution
 
 * JobInstance에 대한 한 번의 실행을 나타내는 객체. 어제 실패하고 오늘 성공하면 어제와 오늘의 JobExecution이 동일하지만, 오늘 성공하고 내일 성공하면 오늘과 내일의 JobExecution은 다른 것. Job 실행에 대한 정보\(JobInstance, 배치 실행 상태, 시작 시간, 끝난 시간, 실패 메시지 등의 정보\)를 담고 있다
 
-### 4. JobParameters
+### 1.3 JobParameters
 
 * Job이 실행될 때 필요한 파라미터들을 Map 타입으로 저장하는 객체. JobInstance를 구분하는 기준이 되기도 함
+
+### 2. Step
+
+* 실질적인 배치 처리를 정의하고 제어하는 데 필요한 모든 정보가 들어 있는 도메인 객체. Job을 처리하는 실질적인 단위로 모든 Job에는 하나 이상의 Step이 있어야 함.
+
+### 2.1 StepExecution
+
+* Step의 실행 정보를 담는 객체로 Step이 실행될 때마다 StepExecution이 생성됨
+
+### 3.1 ItemReader
+
+* Step의 대상이 되는 배치 데이터를 읽어오는 인터페이스. File, XML, DB등 여러 타입의 데이터를 읽어올 수 있음
+
+### 3.2 ItemProcessor
+
+* ItemReader로 읽어온 배치 데이터를 변환하는 역할.
+* ItemWriter는 저장만 수행, ItemProcessor는 로직 처리만 수행하여 비즈니스 로직을 명확하게 분리
+* 배치 데이터와 쓰여질 데이터의 타입이 다를 경우에 대응이 가능함
+
+### 3.3 ItemWriter
+
+* 배치 데이터를 DB나 File로 저장
 
