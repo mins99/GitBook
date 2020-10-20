@@ -28,7 +28,7 @@ description: 이 글은 '처음 배우는 스프링 부트2' (김영재 저)' �
   * 처리\(processing\) : 원하는 방식으로 데이터를 가공/처리
   * 쓰기\(write\) : 수정된 데이터를 다시 저장소에 저장
 
-![Job&#xC774;&#xB77C;&#xB294; &#xD558;&#xB098;&#xC758; &#xD070; &#xC77C;&#xAC10;\(Job\)&#xC5D0; &#xC5EC;&#xB7EC; &#xB2E8;&#xACC4;\(Step\)&#xB97C; &#xB450;&#xACE0;, &#xAC01; &#xB2E8;&#xACC4;&#xB97C; &#xBC30;&#xCE58;&#xC758; &#xAE30;&#xBCF8; &#xD750;&#xB984;&#xB300;&#xB85C; &#xAD6C;&#xD604;](../.gitbook/assets/image.png)
+![Job&#xC774;&#xB77C;&#xB294; &#xD558;&#xB098;&#xC758; &#xD070; &#xC77C;&#xAC10;\(Job\)&#xC5D0; &#xC5EC;&#xB7EC; &#xB2E8;&#xACC4;\(Step\)&#xB97C; &#xB450;&#xACE0;, &#xAC01; &#xB2E8;&#xACC4;&#xB97C; &#xBC30;&#xCE58;&#xC758; &#xAE30;&#xBCF8; &#xD750;&#xB984;&#xB300;&#xB85C; &#xAD6C;&#xD604;](../../.gitbook/assets/image.png)
 
 ### 1. Job
 
