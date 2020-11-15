@@ -27,4 +27,5 @@
 
 * [Clean Code](skill-up/clean-code/README.md)
   * [2장 의미 있는 이름](skill-up/clean-code/2.md)
+  * [3장 함수](skill-up/clean-code/3.md)
 
