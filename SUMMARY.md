@@ -18,6 +18,8 @@
   * [Chapter02](back-end/jpa/chapter02.md)
   * [Chapter10](back-end/jpa/chapter10.md)
   * [Chapter14](back-end/jpa/chapter14.md)
+* [Python](back-end/python/README.md)
+  * [Python 기본](back-end/python/python.md)
 
 ## Front-end
 
