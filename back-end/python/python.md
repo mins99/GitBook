@@ -89,3 +89,225 @@ print(f"나는 {age}살이며, {color}색을 좋아해요.")
   * \b : 백스페이스
   * \t : 탭
 
+### 자료구조
+
+* 리스트
+
+  ```text
+  subway = ["시우민", "백현", "카이"]
+
+  # index : 특정 값 인덱스 찾기
+  print(subway.index("시우민"))
+
+  # append : 리스트 맨 끝에 값 추가
+  subway.append("디오")
+  print(subway)
+
+  # insert : 리스트 중간에 값 추가
+  subway.insert(1, "수호")
+  print(subway)
+
+  # pop : 리스트 맨 끝에 있는 값 삭제
+  subway.pop()
+  print(subway)
+
+  # count : 리스트 특정 값의 갯수
+  subway.append("시우민")
+  print(subway.count("시우민"))
+
+  num_list = [5,2,3,4,1]
+
+  # sort : 리스트를 정렬
+  num_list.sort()
+  print(num_list)
+
+  # reverse : 리스트를 역순으로 정렬
+  num_list.reverse()
+  print(num_list)
+
+  # clear : 리스트를 초기화
+  num_list.clear()
+  print(num_list)
+
+  # 다양한 자료형 함께 사용 가능
+  mix_list = ["시우민", 20, True]
+  print(mix_list)
+
+  # extend : 리스트를 합침
+  subway.extend(mix_list)
+  print(subway)
+  ```
+
+* 사전
+
+  ```text
+  cabinet = {99 : "시우민", 4 : "백현"}
+  print(cabinet)
+  print(cabinet[99])      # 값이 없는 경우 오류 발생
+  print(cabinet.get(99))  # 값이 없는 경우 None 으로 출력
+  print(cabinet.get(3, "사용가능"))   # 값이 없는 경우 출력할 기본값을 설정 가능
+
+  print(3 in cabinet)     # key 존재 유무를 확인 가능
+
+  cabinet2 = {"EXO-M" : "시우민", "EXO-K" : "백현"}   # String 타입 key도 가능
+  print(cabinet2)
+
+  # key가 없는 경우 값 추가, 있는 경우 update
+  cabinet2["EXO-CBX"] = "시우민"
+  print(cabinet2)
+
+  # del : key에 해당하는 값 삭제
+  del cabinet2["EXO-CBX"]
+  print(cabinet2)
+
+  # keys : key만 출력, values : value만 출력, items : key-value 쌍으로 출력
+  print(cabinet2.keys())
+  print(cabinet2.values())
+  print(cabinet2.items())
+
+  # clear : 모든 값 삭제
+  cabinet2.clear()
+  print(cabinet2)
+  ```
+
+* 튜플
+  * 변경되지 않는 목록. 리스트보다 속도가 빠름
+  * 변수명 = \(변수1, 변수2, 변수3, ...\)
+  * add로 추가 불가
+* 세트
+
+  * 중복이 안되며, 순서가 없음
+
+  ```text
+  exo = {"시우민", "수호", "카이", "디오"}
+  exocbx = set(["시우민", "백현"])
+
+  # 교집합
+  print(exo & exocbx)
+  print(exo.intersection(exocbx))
+
+  # 합집합
+  print(exo | exocbx)
+  print(exo.union(exocbx))
+
+  # 차집합
+  print(exo - exocbx)
+  print(exo.difference(exocbx))
+
+  # 값 추가
+  exo.add("세훈")
+  print(exo)
+
+  # 값 삭제
+  exo.remove("세훈")
+  print(exo)
+  ```
+
+* 자료구조의 변경
+
+  ```text
+  menu = {"커피", "우유", "쥬스"}
+  print(menu, type(menu))     # menu의 type은 set
+
+  menu = list(menu)       # set -> list
+  print(menu, type(menu))
+
+  menu = tuple(menu)       # list -> tuple
+  print(menu, type(menu))
+
+  menu = set(menu)       # tuple -> set
+  print(menu, type(menu))
+  ```
+
+### 제어문
+
+* if ~ elif ~ else
+
+  ```text
+  weather = input("오늘 날씨는 어때요? ")
+
+  if weather == "비" or weather == "눈":
+      print("우산을 챙기세요")
+  elif weather == "미세먼지" : 
+      print("마스크를 챙기세요")
+  else : 
+      print("그래도 마스크를 챙기세요")
+
+  temp = int(input("기온은 어때요? "))
+
+  if temp >= 30 :
+      print("너무 더워요. 반팔 고고")
+  elif temp >= 10 and temp < 30 :
+      print("적당해요")
+  elif 0 <= temp < 10 :
+      print("겉옷을 챙겨요")
+  else : 
+      print("나가지 마세요")
+  ```
+
+* for 변수명 in 리스트
+
+  ```text
+  for waiting_no in range(1,6) :
+      print("대기번호 : {0}".format(waiting_no))
+
+  starbucks = ["시우민", "백현", "카이"]
+  for customer in starbucks :
+      print("{0}, 커피가 준비되었습니다.".format(customer))
+  ```
+
+* while 조건
+
+  ```text
+  customer = "토르"
+  index = 5
+  while index >= 1 :
+      print("{0}, 커피가 준비 되었습니다. {1}번 남았어요.".format(customer, index))
+      index -= 1
+      if index == 0 :
+          print("커피가 끝났습니다")
+
+  # customer = "아이언맨"
+  # while True :
+  #     print("{0}, 커피가 준비 되었습니다.".format(customer))      # True 인 동안 무한루프
+
+  customer = "토르"
+  person = "Unknown"
+  while person != customer : 
+      print("{0}, 커피가 준비 되었습니다.".format(customer))
+      person = input("이름이 어떻게 되세요? ")
+  ```
+
+* continue, break
+
+  ```text
+  absent = [2, 5]
+  no_book = [7]
+  for student in range(1, 10) :
+      if student in absent :
+          continue
+      elif student in no_book :
+          print("오늘 수업 여기까지. {0}은 교무실로".format(student))
+          break;
+      print("{0}, 책을 읽어봐".format(student))
+  ```
+
+* 한 줄 for문
+
+  ```text
+  students = [1,2,3,4,5]
+  print(students)
+  students = [i+100 for i in students]
+  print(students)
+
+  students = ["시우민", "백현", "카이", "디오"]
+  print(students)
+  students = [len(i) for i in students]
+  print(students)
+
+  students = ["Xiumin", "BackHyun", "Kai", "do"]
+  print(students)
+  students = [i.upper() for i in students]
+  print(students)
+  ```
+
