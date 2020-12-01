@@ -20,6 +20,7 @@
   * [Chapter14](back-end/jpa/chapter14.md)
 * [Python](back-end/python/README.md)
   * [Python 기본](back-end/python/python.md)
+  * [Python 기본2](back-end/python/python-2.md)
 
 ## Front-end
 
