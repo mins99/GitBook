@@ -116,3 +116,141 @@ description: 이 글은 '인프런 - 파이썬 무료 강의 (기본편) - 6시�
       print(study_file2.read())
   ```
 
+### 클래스
+
+* 클래스 : 자료형과 메서드를 모은 집합. 일종의 템플릿
+* 생성자 : def **init** \(self, ... \) 로 선언. 매개변수 갯수만큼 선언 필수이며 인스턴스 생성시 self를 제외한 부분만 선언하면 됨
+
+  ```text
+  class Unit:
+      def __init__(self, name, hp, damage):
+          self.name = name
+          self.hp = hp
+          self.damage = damage
+          print("{0} 유닛이 생성되었습니다.".format(self.name))
+          print("체력 {0}, 공격력 {1}".format(self.hp, self.damage))
+
+  marine1 = Unit("마린", 40, 5)          # 인스턴스 생성
+  marine2 = Unit("마린", 40, 5)
+  tank = Unit("탱크", 150, 35)
+  ```
+
+* 멤버변수 : 생성된 인스턴스에 대해 각각의 변수에 접근 가능.
+
+  * 외부에서 해당 인스턴스에 대해 추가로 변수를 만들어 값을 넣을 수 있으며, 이 경우에는 해당 인스턴스에서만 사용이 가능함
+
+  ```text
+  wraith1 = Unit("레이스", 80, 5)
+  print("유닛 이름 : {0}, 공격력 : {1}".format(wraith1.name, wraith1.damage))
+
+  wraith2 = Unit("레이스", 80, 5)
+  wraith2.clocking = True            # wraith1에는 clocking이 없다
+
+  if wraith2.clocking == True:
+      print("{0}는 현재 클로킹 상태입니다.".format(wraith2.name))
+  ```
+
+* 상속 : A라는 클래스의 생성자, 메소드가 B 클래스의 생성자, 메소드에 포함되는 범위라면 상속을 통해 구현 가능
+
+  * class 클래스명\(상속받을 클래스명\)
+
+  ```text
+  class Unit:
+      def __init__(self, name, hp):
+          self.name = name
+          self.hp = hp 
+
+  class AttackUnit(Unit):        # Unit 클래스를 상속받음
+      def __init__(self, name, hp, damage):
+          Unit.__init__(self, name, hp)
+          self.damage = damage
+
+  firebat1 = AttackUnit("파이어뱃", 50, 16)
+  firebat1.attack("5시")
+
+  firebat1.damaged(25)
+  firebat1.damaged(25)
+  ```
+
+* 다중상속 : 상속 받는 부모 클래스가 여러개일 때 사용
+
+  ```text
+  class Flyable:
+      def __init__(self, flying_speed):
+          self.flying_speed = flying_speed
+
+      def fly(self, name, location):
+          print("{0} : {1} 방향으로 날아갑니다. [속도 {2}]".format(name, location, self.flying_speed))
+
+  class FlyableAttackUnit(AttackUnit, Flyable):
+      def __init__(self, name, hp, damage, flying_speed):
+          AttackUnit.__init__(self, name, hp, damage)
+          Flyable.__init__(self, flying_speed)
+
+  valkyrie = FlyableAttackUnit("발키리", 200, 6, 5)
+  valkyrie.fly(valkyrie.name, "3시")
+  ```
+
+* 메소드 오버라이딩 : 자식 클래스에서 선언한 메소드를 부모 클래스에서 사용하고 싶을 때 사용
+
+  * 지상유닛, 공중유닛의 경우 움직일때 각각 move, fly를 해야함 → 이름은 다르지만 로직은 동일
+
+  ```text
+  class Unit:
+      def __init__(self, name, hp, speed):
+          self.name = name
+          self.hp = hp 
+          self.speed = speed
+    
+      def move(self, location):
+          print("[지상 유닛 이동]")
+          print("{0} : {1} 방향으로 이동합니다. [속도 {2}".format(self.name, location, self.speed))
+
+  class FlyableAttackUnit(AttackUnit, Flyable):
+      def __init__(self, name, hp, damage, flying_speed):
+          AttackUnit.__init__(self, name, hp, 0, damage)        # 지상 speed 0
+          Flyable.__init__(self, flying_speed)
+    
+      def move(self, location):
+          print("[공중 유닛 이동]")
+          self.fly(self.name, location)
+
+  vulture = AttackUnit("벌쳐", 80, 10, 20)
+  battlecruiser = FlyableAttackUnit("배틀크루저", 500, 25, 3)
+
+  vulture.move("11시")
+  #battlecruiser.fly(battlecruiser.name, "9시")
+  battlecruiser.move("9시")
+  ```
+
+* pass : 메소드 내에서 사용시 아무런 선언이 없어도 그냥 넘어감
+
+  ```text
+  # 건물
+  class BuildingUnit(Unit):
+      def __init__(self, name, hp, location):
+          pass
+
+  supply_depot = BuildingUnit("서플라이 디폿", 500, "7시")
+
+  def game_start():
+      print("[알림] 새로운 게임을 시작합니다.")
+
+  def game_over():
+      pass
+  ```
+
+* super : 상속 받은 클래스에서 선언시 super를 통해 선언 가능
+
+  * super 사용시에는 super\(\).**init**\(변수1, 변수2 ...\) 형식으로 self를 제외한다
+  * 다중 상속시 하나의 부모에 대해서만 init이 적용됨
+
+  ```text
+  # 건물
+  class BuildingUnit(Unit):
+      def __init__(self, name, hp, location):
+          #Unit.__init__(self, name, hp, 0)
+          super().__init__(name, hp, 0)
+          self.location = location
+  ```
+
