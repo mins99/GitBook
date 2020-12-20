@@ -320,3 +320,91 @@ description: 이 글은 '인프런 - 파이썬 무료 강의 (기본편) - 6시�
       print("계산기를 이용해주셔서 감사합니다.")
   ```
 
+### 모듈과 패키지
+
+* import \[파일명\] as \[별명\] : 다른 파일의 함수를 사용. 별명.함수명 형식
+* from \[파일명\] import \* : 별칭 없이 해당 파일의 함수명만 사용하여 쓸 수 있음
+
+  * import 이후의 함수를 제한두는 방식도 가능하고, 함수명에 별칭을 주는 방식도 가능하다
+
+  ```text
+  # import theater_module
+  # theater_module.price(3)
+  # theater_module.price_morning(4)
+  # theater_module.price_soldier(5)
+
+  # import theater_module as mv
+  # mv.price(3)
+  # mv.price_morning(4)
+  # mv.price_soldier(5)
+
+  # from theater_module import price, price_morning
+  # price(3)
+  # price_morning(4)
+  # price_soldier(5)
+
+  from theater_module import price_soldier as price
+  price(5)    # price_soldier가 실행됨
+  ```
+
+* **all** : **init**.py를 생성후 **all** = \["패키지명"\] 추가시 해당 패키지의 사용 가능 범위가 전체로 변경되어 from 패키지 import \* 형식으로 사용 가능해진다
+* /Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/random.py 과 같이 lib 아래에 패키지들의 집합이 있음
+
+### 내장 함수
+
+* input : 사용자 입력을 받는 함수
+* dir : 어떤 객체를 넘겨줬을 때 그 객체가 어떤 변수와 함수를 가지고 있는지 표시
+* [built-in Functions](https://docs.python.org/ko/3/library/functions.html) 사이트 에서 내장 함수 목록을 볼 수 있다
+
+```text
+print(dir())
+import random
+print(dir())
+lst = [1,2,3]
+print(dir(lst))
+
+결과
+['__annotations__', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__']
+['__annotations__', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', 'random']
+['__add__', '__class__', '__class_getitem__', '__contains__', '__delattr__', '__delitem__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__gt__', '__hash__', '__iadd__', '__imul__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__reversed__', '__rmul__', '__setattr__', '__setitem__', '__sizeof__', '__str__', '__subclasshook__', 'append', 'clear', 'copy', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort']
+```
+
+### 외장 함수
+
+* [Python Module Index](https://docs.python.org/ko/3/py-modindex.html) 사이트에서 외장 함수 목록을 조회 가능
+* glob : 경로 내의 폴더 / 파일 목록 조회 \(윈도우 dir\)
+* os : 운영체제에서 제공하는 기본 기능
+* time, datetime : 시간 관련 함수
+* timedelta : 두 날짜 사이의 간격
+
+```text
+import glob
+print(glob.glob("*.py")) # 확장자가 py인 모든 파일
+
+import os
+print(os.getcwd())  # 현재 디렉토리
+
+folder = "sample_dir"
+
+if os.path.exists(folder):
+    print("이미 존재하는 폴더입니다.")
+    os.rmdir(folder)
+    print(folder, "폴더를 삭제하였습니다.")
+else:
+    os.makedirs(folder)     # 폴더 생성
+    print(folder, "폴더를 생성하였습니다.")
+
+print(os.listdir())
+
+import time 
+print(time.localtime())
+print(time.strftime("%Y-%m-%d %H:%M:%S"))
+
+import datetime
+print("오늘 날짜는", datetime.date.today())
+
+today = datetime.date.today()       # 오늘 날짜 저장
+td = datetime.timedelta(days=100)
+print("우리가 만난지 100일은", today + td)
+```
+
