@@ -26,6 +26,11 @@
 
 * [javascript](front-end/javascript.md)
 
+## DB
+
+* [MySQL](db/mysql/README.md)
+  * [MySQL DB계정 생성 및 스키마 생성과 권한 추가하기](db/mysql/mysql-db.md)
+
 ## Skill Up
 
 * [Clean Code](skill-up/clean-code/README.md)
