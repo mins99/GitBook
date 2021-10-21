@@ -7,10 +7,11 @@ description: 이 글은 '인프런 - 파이썬 무료 강의 (기본편) - 6시�
 ### 변수
 
 * 변수 선언시에는 변수명 = "값" 형식으로
-* 숫자형이나 boolean 인 경우에는 print 할 때 str\(변수명\) 형식으로 감싸주기
-  * * 가 아닌 , 를 쓸때는 안써도 됨
+* 숫자형이나 boolean 인 경우에는 print 할 때 str(변수명) 형식으로 감싸주기
+  *
+    * 가 아닌 , 를 쓸때는 안써도 됨
 
-```text
+```
 animal = "고양이"
 name = "터치"
 age = 7
@@ -40,25 +41,25 @@ sentence = """
 * from math import \* 선언 → floor, ceil, sqrt 등
 * 랜덤함수 random
   * from random import \* 로 선언
-  * random\(\) : 0.0 ~ 1.0 미만의 값 생성
-  * int\(random\(\)\) 시 정수로 임의의 값 생성
-* randrange\(1, 46\) → 1~46 미만의 임의의 값 생성
-* randint\(1, 45\) → 1~45 이하의 임의의 값 생성
+  * random() : 0.0 \~ 1.0 미만의 값 생성
+  * int(random()) 시 정수로 임의의 값 생성
+* randrange(1, 46) → 1\~46 미만의 임의의 값 생성
+* randint(1, 45) → 1\~45 이하의 임의의 값 생성
 
 ### 문자열
 
-* jumin\[n:m\] : n번째 값부터 m직전까지
-* jumin\[:n\] : 처음부터 n직전까지
-* jumin\[-n:\] : 끝을 기준으로 n부터 끝까지
-* lower\(\) : 소문자화
-* upper\(\) : 대문자화
-* isupper\(\) : 문자 하나 대문자화
-* len\(변수명\) : 문자열 길이
-* 변수명.count\(x\) : 문자열에 특정 문자열이 몇개 있는지 반환
-* replace\(old, new\) : old를 new로 변경
-* index, find : 문자\(열\)을 찾아 위치값을 반환. index는 값이 없을때 오류가 나고 find는 -1를 반환
+* jumin\[n:m] : n번째 값부터 m직전까지
+* jumin\[:n] : 처음부터 n직전까지
+* jumin\[-n:] : 끝을 기준으로 n부터 끝까지
+* lower() : 소문자화
+* upper() : 대문자화
+* isupper() : 문자 하나 대문자화
+* len(변수명) : 문자열 길이
+* 변수명.count(x) : 문자열에 특정 문자열이 몇개 있는지 반환
+* replace(old, new) : old를 new로 변경
+* index, find : 문자(열)을 찾아 위치값을 반환. index는 값이 없을때 오류가 나고 find는 -1를 반환
 
-```text
+```
 # 방법1
 # %s 를 사용하는 경우 모든 변수에 대입 가능
 print("나는 %d살입니다." % 20)
@@ -82,324 +83,313 @@ print(f"나는 {age}살이며, {color}색을 좋아해요.")
 
 * 탈출문자
   * \n : 줄바꿈
-  * \" : 쌍따옴표
-  * \\ : 문장 내에서 하나의 \
+  * \\" : 쌍따옴표
+  * \\\ : 문장 내에서 하나의 \\
   * \r : 커서를 맨 앞으로 이동
-    * print\("Red Apple\rPine"\)
+    * print("Red Apple\rPine")
   * \b : 백스페이스
   * \t : 탭
 
 ### 자료구조
 
-* 리스트
+*   리스트
 
-  ```text
-  subway = ["시우민", "백현", "카이"]
+    ```
+    subway = ["시우민", "백현", "카이"]
 
-  # index : 특정 값 인덱스 찾기
-  print(subway.index("시우민"))
+    # index : 특정 값 인덱스 찾기
+    print(subway.index("시우민"))
 
-  # append : 리스트 맨 끝에 값 추가
-  subway.append("디오")
-  print(subway)
+    # append : 리스트 맨 끝에 값 추가
+    subway.append("디오")
+    print(subway)
 
-  # insert : 리스트 중간에 값 추가
-  subway.insert(1, "수호")
-  print(subway)
+    # insert : 리스트 중간에 값 추가
+    subway.insert(1, "수호")
+    print(subway)
 
-  # pop : 리스트 맨 끝에 있는 값 삭제
-  subway.pop()
-  print(subway)
+    # pop : 리스트 맨 끝에 있는 값 삭제
+    subway.pop()
+    print(subway)
 
-  # count : 리스트 특정 값의 갯수
-  subway.append("시우민")
-  print(subway.count("시우민"))
+    # count : 리스트 특정 값의 갯수
+    subway.append("시우민")
+    print(subway.count("시우민"))
 
-  num_list = [5,2,3,4,1]
+    num_list = [5,2,3,4,1]
 
-  # sort : 리스트를 정렬
-  num_list.sort()
-  print(num_list)
+    # sort : 리스트를 정렬
+    num_list.sort()
+    print(num_list)
 
-  # reverse : 리스트를 역순으로 정렬
-  num_list.reverse()
-  print(num_list)
+    # reverse : 리스트를 역순으로 정렬
+    num_list.reverse()
+    print(num_list)
 
-  # clear : 리스트를 초기화
-  num_list.clear()
-  print(num_list)
+    # clear : 리스트를 초기화
+    num_list.clear()
+    print(num_list)
 
-  # 다양한 자료형 함께 사용 가능
-  mix_list = ["시우민", 20, True]
-  print(mix_list)
+    # 다양한 자료형 함께 사용 가능
+    mix_list = ["시우민", 20, True]
+    print(mix_list)
 
-  # extend : 리스트를 합침
-  subway.extend(mix_list)
-  print(subway)
-  ```
+    # extend : 리스트를 합침
+    subway.extend(mix_list)
+    print(subway)
+    ```
+*   사전
 
-* 사전
+    ```
+    cabinet = {99 : "시우민", 4 : "백현"}
+    print(cabinet)
+    print(cabinet[99])      # 값이 없는 경우 오류 발생
+    print(cabinet.get(99))  # 값이 없는 경우 None 으로 출력
+    print(cabinet.get(3, "사용가능"))   # 값이 없는 경우 출력할 기본값을 설정 가능
 
-  ```text
-  cabinet = {99 : "시우민", 4 : "백현"}
-  print(cabinet)
-  print(cabinet[99])      # 값이 없는 경우 오류 발생
-  print(cabinet.get(99))  # 값이 없는 경우 None 으로 출력
-  print(cabinet.get(3, "사용가능"))   # 값이 없는 경우 출력할 기본값을 설정 가능
+    print(3 in cabinet)     # key 존재 유무를 확인 가능
 
-  print(3 in cabinet)     # key 존재 유무를 확인 가능
+    cabinet2 = {"EXO-M" : "시우민", "EXO-K" : "백현"}   # String 타입 key도 가능
+    print(cabinet2)
 
-  cabinet2 = {"EXO-M" : "시우민", "EXO-K" : "백현"}   # String 타입 key도 가능
-  print(cabinet2)
+    # key가 없는 경우 값 추가, 있는 경우 update
+    cabinet2["EXO-CBX"] = "시우민"
+    print(cabinet2)
 
-  # key가 없는 경우 값 추가, 있는 경우 update
-  cabinet2["EXO-CBX"] = "시우민"
-  print(cabinet2)
+    # del : key에 해당하는 값 삭제
+    del cabinet2["EXO-CBX"]
+    print(cabinet2)
 
-  # del : key에 해당하는 값 삭제
-  del cabinet2["EXO-CBX"]
-  print(cabinet2)
+    # keys : key만 출력, values : value만 출력, items : key-value 쌍으로 출력
+    print(cabinet2.keys())
+    print(cabinet2.values())
+    print(cabinet2.items())
 
-  # keys : key만 출력, values : value만 출력, items : key-value 쌍으로 출력
-  print(cabinet2.keys())
-  print(cabinet2.values())
-  print(cabinet2.items())
-
-  # clear : 모든 값 삭제
-  cabinet2.clear()
-  print(cabinet2)
-  ```
-
+    # clear : 모든 값 삭제
+    cabinet2.clear()
+    print(cabinet2)
+    ```
 * 튜플
   * 변경되지 않는 목록. 리스트보다 속도가 빠름
-  * 변수명 = \(변수1, 변수2, 변수3, ...\)
+  * 변수명 = (변수1, 변수2, 변수3, ...)
   * add로 추가 불가
-* 세트
+*   세트
 
-  * 중복이 안되며, 순서가 없음
+    * 중복이 안되며, 순서가 없음
 
-  ```text
-  exo = {"시우민", "수호", "카이", "디오"}
-  exocbx = set(["시우민", "백현"])
+    ```
+    exo = {"시우민", "수호", "카이", "디오"}
+    exocbx = set(["시우민", "백현"])
 
-  # 교집합
-  print(exo & exocbx)
-  print(exo.intersection(exocbx))
+    # 교집합
+    print(exo & exocbx)
+    print(exo.intersection(exocbx))
 
-  # 합집합
-  print(exo | exocbx)
-  print(exo.union(exocbx))
+    # 합집합
+    print(exo | exocbx)
+    print(exo.union(exocbx))
 
-  # 차집합
-  print(exo - exocbx)
-  print(exo.difference(exocbx))
+    # 차집합
+    print(exo - exocbx)
+    print(exo.difference(exocbx))
 
-  # 값 추가
-  exo.add("세훈")
-  print(exo)
+    # 값 추가
+    exo.add("세훈")
+    print(exo)
 
-  # 값 삭제
-  exo.remove("세훈")
-  print(exo)
-  ```
+    # 값 삭제
+    exo.remove("세훈")
+    print(exo)
+    ```
+*   자료구조의 변경
 
-* 자료구조의 변경
+    ```
+    menu = {"커피", "우유", "쥬스"}
+    print(menu, type(menu))     # menu의 type은 set
 
-  ```text
-  menu = {"커피", "우유", "쥬스"}
-  print(menu, type(menu))     # menu의 type은 set
+    menu = list(menu)       # set -> list
+    print(menu, type(menu))
 
-  menu = list(menu)       # set -> list
-  print(menu, type(menu))
+    menu = tuple(menu)       # list -> tuple
+    print(menu, type(menu))
 
-  menu = tuple(menu)       # list -> tuple
-  print(menu, type(menu))
-
-  menu = set(menu)       # tuple -> set
-  print(menu, type(menu))
-  ```
+    menu = set(menu)       # tuple -> set
+    print(menu, type(menu))
+    ```
 
 ### 제어문
 
-* if ~ elif ~ else
+*   if \~ elif \~ else
 
-  ```text
-  weather = input("오늘 날씨는 어때요? ")
+    ```
+    weather = input("오늘 날씨는 어때요? ")
 
-  if weather == "비" or weather == "눈":
-      print("우산을 챙기세요")
-  elif weather == "미세먼지" : 
-      print("마스크를 챙기세요")
-  else : 
-      print("그래도 마스크를 챙기세요")
+    if weather == "비" or weather == "눈":
+        print("우산을 챙기세요")
+    elif weather == "미세먼지" : 
+        print("마스크를 챙기세요")
+    else : 
+        print("그래도 마스크를 챙기세요")
 
-  temp = int(input("기온은 어때요? "))
+    temp = int(input("기온은 어때요? "))
 
-  if temp >= 30 :
-      print("너무 더워요. 반팔 고고")
-  elif temp >= 10 and temp < 30 :
-      print("적당해요")
-  elif 0 <= temp < 10 :
-      print("겉옷을 챙겨요")
-  else : 
-      print("나가지 마세요")
-  ```
+    if temp >= 30 :
+        print("너무 더워요. 반팔 고고")
+    elif temp >= 10 and temp < 30 :
+        print("적당해요")
+    elif 0 <= temp < 10 :
+        print("겉옷을 챙겨요")
+    else : 
+        print("나가지 마세요")
+    ```
+*   for 변수명 in 리스트
 
-* for 변수명 in 리스트
+    ```
+    for waiting_no in range(1,6) :
+        print("대기번호 : {0}".format(waiting_no))
 
-  ```text
-  for waiting_no in range(1,6) :
-      print("대기번호 : {0}".format(waiting_no))
+    starbucks = ["시우민", "백현", "카이"]
+    for customer in starbucks :
+        print("{0}, 커피가 준비되었습니다.".format(customer))
+    ```
+*   while 조건
 
-  starbucks = ["시우민", "백현", "카이"]
-  for customer in starbucks :
-      print("{0}, 커피가 준비되었습니다.".format(customer))
-  ```
+    ```
+    customer = "토르"
+    index = 5
+    while index >= 1 :
+        print("{0}, 커피가 준비 되었습니다. {1}번 남았어요.".format(customer, index))
+        index -= 1
+        if index == 0 :
+            print("커피가 끝났습니다")
 
-* while 조건
+    # customer = "아이언맨"
+    # while True :
+    #     print("{0}, 커피가 준비 되었습니다.".format(customer))      # True 인 동안 무한루프
 
-  ```text
-  customer = "토르"
-  index = 5
-  while index >= 1 :
-      print("{0}, 커피가 준비 되었습니다. {1}번 남았어요.".format(customer, index))
-      index -= 1
-      if index == 0 :
-          print("커피가 끝났습니다")
+    customer = "토르"
+    person = "Unknown"
+    while person != customer : 
+        print("{0}, 커피가 준비 되었습니다.".format(customer))
+        person = input("이름이 어떻게 되세요? ")
+    ```
+*   continue, break
 
-  # customer = "아이언맨"
-  # while True :
-  #     print("{0}, 커피가 준비 되었습니다.".format(customer))      # True 인 동안 무한루프
+    ```
+    absent = [2, 5]
+    no_book = [7]
+    for student in range(1, 10) :
+        if student in absent :
+            continue
+        elif student in no_book :
+            print("오늘 수업 여기까지. {0}은 교무실로".format(student))
+            break;
+        print("{0}, 책을 읽어봐".format(student))
+    ```
+*   한 줄 for문
 
-  customer = "토르"
-  person = "Unknown"
-  while person != customer : 
-      print("{0}, 커피가 준비 되었습니다.".format(customer))
-      person = input("이름이 어떻게 되세요? ")
-  ```
+    ```
+    students = [1,2,3,4,5]
+    print(students)
+    students = [i+100 for i in students]
+    print(students)
 
-* continue, break
+    students = ["시우민", "백현", "카이", "디오"]
+    print(students)
+    students = [len(i) for i in students]
+    print(students)
 
-  ```text
-  absent = [2, 5]
-  no_book = [7]
-  for student in range(1, 10) :
-      if student in absent :
-          continue
-      elif student in no_book :
-          print("오늘 수업 여기까지. {0}은 교무실로".format(student))
-          break;
-      print("{0}, 책을 읽어봐".format(student))
-  ```
+    students = ["Xiumin", "BackHyun", "Kai", "do"]
+    print(students)
+    students = [i.upper() for i in students]
+    print(students)
+    ```
 
-* 한 줄 for문
-
-  ```text
-  students = [1,2,3,4,5]
-  print(students)
-  students = [i+100 for i in students]
-  print(students)
-
-  students = ["시우민", "백현", "카이", "디오"]
-  print(students)
-  students = [len(i) for i in students]
-  print(students)
-
-  students = ["Xiumin", "BackHyun", "Kai", "do"]
-  print(students)
-  students = [i.upper() for i in students]
-  print(students)
-  ```
-
-### 함수 
+### 함수&#x20;
 
 * def 함수명 으로 선언
-* 반환하는 변수는 두 개 이상일 수 있고 튜플 형태로 반환됨
+*   반환하는 변수는 두 개 이상일 수 있고 튜플 형태로 반환됨
 
-  ```text
-  def open_account() :
-      print("새로운 계좌가 생성되었습니다.")
+    ```
+    def open_account() :
+        print("새로운 계좌가 생성되었습니다.")
 
-  # 입금
-  def deposit(balance, money) :
-      print("입금이 완료되었습니다. 잔액은 {0}원입니다.".format(balance + money))
-      return balance + money
+    # 입금
+    def deposit(balance, money) :
+        print("입금이 완료되었습니다. 잔액은 {0}원입니다.".format(balance + money))
+        return balance + money
 
-  # 출금
-  def withdraw(balance, money) :
-      if balance >= money :   # 잔액 > 출금
-          print("출금이 완료되었습니다. 잔액은 {0}원입니다.".format(balance - money))
-          return balance - money
-      else :
-          print("출금이 완료되지 않았습니다. 잔액은 {0}원입니다.".format(balance))
-          return balance
+    # 출금
+    def withdraw(balance, money) :
+        if balance >= money :   # 잔액 > 출금
+            print("출금이 완료되었습니다. 잔액은 {0}원입니다.".format(balance - money))
+            return balance - money
+        else :
+            print("출금이 완료되지 않았습니다. 잔액은 {0}원입니다.".format(balance))
+            return balance
 
-  # 저녁 출금(수수료)
-  def withdraw_night(balance, money) :
-      commission = 100
-      return commission, balance - money - commission
+    # 저녁 출금(수수료)
+    def withdraw_night(balance, money) :
+        commission = 100
+        return commission, balance - money - commission
 
-  balance = 0 # 잔액
-  balance = deposit(balance, 1000)
-  balance = withdraw(balance, 2000)
-  commission, balance = withdraw_night(balance, 500)
-  print("수수료는 {0}원이며, 잔액은 {1}원입니다.".format(commission, balance))
-  ```
-
+    balance = 0 # 잔액
+    balance = deposit(balance, 1000)
+    balance = withdraw(balance, 2000)
+    commission, balance = withdraw_night(balance, 500)
+    print("수수료는 {0}원이며, 잔액은 {1}원입니다.".format(commission, balance))
+    ```
 * 기본값 : 매개변수 선언시 값을 지정해주면 함수 호출시에 값을 받지 않으면 기본값을 사용
-* 키워드 값 : 함수 호출시 매개변수와 값을 지정해주어 호출
+*   키워드 값 : 함수 호출시 매개변수와 값을 지정해주어 호출
 
-  ```text
-  def profile(name, age = 17, main_lang = "java") :
-      print("이름 : {0}\\t나이 : {1}\\t주 사용 언어 : {2}"\\
-          .format(name, age, main_lang))
+    ```
+    def profile(name, age = 17, main_lang = "java") :
+        print("이름 : {0}\\t나이 : {1}\\t주 사용 언어 : {2}"\\
+            .format(name, age, main_lang))
 
-  profile("시우민", 20, "JAVA")
-  profile("시우민")
+    profile("시우민", 20, "JAVA")
+    profile("시우민")
 
-  def profile2(name, age, main_lang) :
-      print(name, age, main_lang)
+    def profile2(name, age, main_lang) :
+        print(name, age, main_lang)
 
-  profile2(name="유재석", main_lang="파이썬", age=20)
+    profile2(name="유재석", main_lang="파이썬", age=20)
 
-  def profile2(name, age, main_lang) :
-      print(name, age, main_lang)
+    def profile2(name, age, main_lang) :
+        print(name, age, main_lang)
 
-  profile2(name="유재석", main_lang="파이썬", age=20)
-  ```
+    profile2(name="유재석", main_lang="파이썬", age=20)
+    ```
+*   가변인자 : 매개변수가 가변적일 때 \*변수명 으로 선언
 
-* 가변인자 : 매개변수가 가변적일 때 \*변수명 으로 선언
+    ```
+    def profile(name, age, *language) :
+        print("이름 : {0}\\t나이 : {1}\\t".format(name, age), end=" ")
+        for lang in language :
+            print(lang, end=" ")
+        print()
 
-  ```text
-  def profile(name, age, *language) :
-      print("이름 : {0}\\t나이 : {1}\\t".format(name, age), end=" ")
-      for lang in language :
-          print(lang, end=" ")
-      print()
+    profile("민성", 20, "java", "c", "c++", "python", "c#")
+    profile("민성", 21, "java", "c")
+    ```
+*   전역변수, 지역변수
 
-  profile("민성", 20, "java", "c", "c++", "python", "c#")
-  profile("민성", 21, "java", "c")
-  ```
+    ```
+    gun = 10   # 전역변
 
-* 전역변수, 지역변수
+    def checkpoint(soldiers) :
+        global gun  # 전역 공간에 있는 gun 사용시 global 선언
+        gun = gun - soldiers
+        print("[함수 내] 남은 총 : {0}".format(gun))
 
-  ```text
-  gun = 10   # 전역변
+    def checkpoint_ret(gun, soldiers) :
+    		gun = gun - soldiers     # 여기서의 gun은 지역변수
+        print("[함수 내] 남은 총 : {0}".format(gun))
+        return gun
 
-  def checkpoint(soldiers) :
-      global gun  # 전역 공간에 있는 gun 사용시 global 선언
-      gun = gun - soldiers
-      print("[함수 내] 남은 총 : {0}".format(gun))
-
-  def checkpoint_ret(gun, soldiers) :
-  		gun = gun - soldiers     # 여기서의 gun은 지역변수
-      print("[함수 내] 남은 총 : {0}".format(gun))
-      return gun
-
-  print("전체 총 : {0}".format(gun))
-  checkpoint(2)
-  print("남은 총 : {0}".format(gun))
-  gun = checkpoint_ret(gun, 2)
-  print("남은 총 : {0}".format(gun))
-  ```
-
+    print("전체 총 : {0}".format(gun))
+    checkpoint(2)
+    print("남은 총 : {0}".format(gun))
+    gun = checkpoint_ret(gun, 2)
+    print("남은 총 : {0}".format(gun))
+    ```

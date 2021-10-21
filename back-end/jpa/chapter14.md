@@ -46,20 +46,20 @@ description: 이 글은 '자바 ORM 표준 JPA 프로그래밍' (김영한 저)'
 
 * 하이버네이트 내장 컬렉션과 특징
 
-| 컬렉션 인터페이스 | 내장 컬렉션 | 중복 허용 | 순서 보관 |
-| :--- | :--- | :--- | :--- |
-| Collection, List | PersistenceBag | O | X |
-| Set | PersistenceSet | X | X |
-| List + @OrderColumn | PersistentList | O | O |
+| 컬렉션 인터페이스           | 내장 컬렉션         | 중복 허용 | 순서 보관 |
+| ------------------- | -------------- | ----- | ----- |
+| Collection, List    | PersistenceBag | O     | X     |
+| Set                 | PersistenceSet | X     | X     |
+| List + @OrderColumn | PersistentList | O     | O     |
 
 #### **14.1.2 Collection, List**
 
-* Collection, List는 중복을 허용한다고 가정하므로 객체를 추가하는 add\(\) 메소드는 내부에서 어떤 비교도 하지 않고 항상 true를 반환
+* Collection, List는 중복을 허용한다고 가정하므로 객체를 추가하는 add() 메소드는 내부에서 어떤 비교도 하지 않고 항상 true를 반환
 * 엔티티를 추가할 때 중복된 엔티티가 있는지 비교하지 않고 단순히 저장만 하면 된다. 엔티티를 추가해도 지연 로딩된 컬렉션을 초기화 하지 않는다.
 
 #### **14.1.3 Set**
 
-* Set 인터페이스는 HashSet으로 초기화. 중복을 허용하지 않으므로 add\(\) 할 때 마다 equals\(\)로 같은 객체가 있는지 반환. HashSet은 해시 알고리즘을 사용하므로 hashcode\(\)도 함께 사용해서 비교함
+* Set 인터페이스는 HashSet으로 초기화. 중복을 허용하지 않으므로 add() 할 때 마다 equals()로 같은 객체가 있는지 반환. HashSet은 해시 알고리즘을 사용하므로 hashcode()도 함께 사용해서 비교함
 * 엔티티를 추가할 때 중복된 엔티티가 있는지 비교해야 한다. 엔티티를 추가할 때 지연 로딩된 컬렉션을 초기화한다.
 
 #### **14.1.4 List + @OrderColumn**
@@ -70,7 +70,7 @@ description: 이 글은 '자바 ORM 표준 JPA 프로그래밍' (김영한 저)'
 
 **@OrderColumn의 단점**
 
-* 테이블의 일대다 관계 특성상 위치 값이 지정한 엔티티의 필드가 아닌 다\(N\)쪽의 엔티티 테이블에 매핑될 수 있다. 따로 UPDATE SQL이 추가로 발생할 수 있다
+* 테이블의 일대다 관계 특성상 위치 값이 지정한 엔티티의 필드가 아닌 다(N)쪽의 엔티티 테이블에 매핑될 수 있다. 따로 UPDATE SQL이 추가로 발생할 수 있다
 * List를 변경하면 연관된 많은 위치 값을 변경해야 함
 * 중간에 값이 없는 경우 해당 index에 null값이 보관되어 컬렉션 순회시 NullPointerException 발생할 수 있다
 
@@ -124,11 +124,11 @@ description: 이 글은 '자바 ORM 표준 JPA 프로그래밍' (김영한 저)'
 * BooleanToYNConverter.java에 `@Converter(autuApply = true)` 글로벌 설정으로 옵션을 적용하면 모든 Boolean 타입에 대해 자동으로 컨버터가 적용된다
 * `@Convert 속성 정리`
 
-| 속성 | 기능 | 기본값 |
-| :--- | :--- | :--- |
-| converter | 사용할 컨버터를 지정 |  |
-| attributeName | 컨버터를 적용할 필드를 지정 |  |
-| disableConversion | 글로벌 컨버터나 상속 받은   컨버터를 사용하지 않음 | false |
+| 속성                | 기능                                      | 기본값   |
+| ----------------- | --------------------------------------- | ----- |
+| converter         | 사용할 컨버터를 지정                             |       |
+| attributeName     | 컨버터를 적용할 필드를 지정                         |       |
+| disableConversion | <p>글로벌 컨버터나 상속 받은 <br> 컨버터를 사용하지 않음</p> | false |
 
 ### 14.3 리스너
 
@@ -136,10 +136,10 @@ description: 이 글은 '자바 ORM 표준 JPA 프로그래밍' (김영한 저)'
 
 #### **14.3.1 이벤트 종류**
 
-![](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2FbusT6m%2FbtqEVWFTh4A%2FRK1EezAQpkUKOopYttxHL1%2Fimg.png)
+![](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2\&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2FbusT6m%2FbtqEVWFTh4A%2FRK1EezAQpkUKOopYttxHL1%2Fimg.png)
 
-* PostLoad : 엔티티가 영속성 컨텍스트에 조회된 직후 또는 refresh를 호출한 후\(2차 캐시에 저장되어 있어도 호출\)
-* PrePersist : persist\(\) 메소드를 호출해서 엔티티를 영속성 컨텍스트에 관리하기 직전에 호출. 식별자 생성 전략을 사용한 경우 엔티티에 식별자는 아직 존재하지 않음. 새로운 인스턴스를 merge할 때도 수행
+* PostLoad : 엔티티가 영속성 컨텍스트에 조회된 직후 또는 refresh를 호출한 후(2차 캐시에 저장되어 있어도 호출)
+* PrePersist : persist() 메소드를 호출해서 엔티티를 영속성 컨텍스트에 관리하기 직전에 호출. 식별자 생성 전략을 사용한 경우 엔티티에 식별자는 아직 존재하지 않음. 새로운 인스턴스를 merge할 때도 수행
 * PreUpdate : flush, commit을 호출해서 엔티티를 데이터베이스에 수정하기 직전에 호출.
 * PreRemove : remove를 호출해서 엔티티를 영속성 컨텍스트에서 삭제하기 직전에 호출. 삭제 명령어로 영속성 전이가 일어날 때도 호출. orphanRemoval에 대해서는 flush나 commit시에 호출
 * PostPersist : flush, commit을 호출해서 엔티티를 데이터베이스에 저장한 직후에 호출. 식별자가 항상 존재. 식별자 생성 전략이 IDENTITY면 식별자를 생성하기 위해 persist를 호출하면서 데이터베이스에 해당 엔티티를 저장하므로 persist를 호출한 직후에 바로 PostPersist가 호출
@@ -173,7 +173,7 @@ description: 이 글은 '자바 ORM 표준 JPA 프로그래밍' (김영한 저)'
   </persistence-unit-metedata>
 ```
 
-* 기본 리스너 -&gt; 부모 클래스 리스너 -&gt; 리스너 -&gt; 엔티티 의 호출 순서
+* 기본 리스너 -> 부모 클래스 리스너 -> 리스너 -> 엔티티 의 호출 순서
 
 **더 세밀한 설정**
 
@@ -194,12 +194,12 @@ description: 이 글은 '자바 ORM 표준 JPA 프로그래밍' (김영한 저)'
 
 * Named 엔티티 그래프는 `@NamedEntityGraph`로 정의
   * name : 엔티티 그래프의 이름을 정의
-  * attributeNodes : 함께 조회할 속성 선택. `@NamedAttributeNode`를 사용하고 그 값으로 함께 조회할 속성을 선택. 
+  * attributeNodes : 함께 조회할 속성 선택. `@NamedAttributeNode`를 사용하고 그 값으로 함께 조회할 속성을 선택.&#x20;
 * 둘 이상 정의하려면 `@NamedEntityGraphs`를 사용
 
-#### **14.4.2 em.find\(\)에서 엔티티 그래프 사용**
+#### **14.4.2 em.find()에서 엔티티 그래프 사용**
 
-* Named 엔티티 그래프를 사용하려면 em.getEntityGraph\(\) 사용
+* Named 엔티티 그래프를 사용하려면 em.getEntityGraph() 사용
 * JPA 힌트 기능을 사용해서 힌트의 키로 javax.persistence.fetchgraph를 사용하고 힌트의 값으로 찾아온 엔티티 그래프를 사용
 
 ```java
@@ -213,7 +213,7 @@ description: 이 글은 '자바 ORM 표준 JPA 프로그래밍' (김영한 저)'
 
 #### **14.4.3 subgraph**
 
-* Order -&gt; OrderItem -&gt; Item 과 같은 연관구조에서는 subgraph 사용
+* Order -> OrderItem -> Item 과 같은 연관구조에서는 subgraph 사용
 
 ```java
   @NamedEntityGraph(name = "Order.withAll", attributeNodes = {
@@ -247,7 +247,7 @@ description: 이 글은 '자바 ORM 표준 JPA 프로그래밍' (김영한 저)'
 
 #### **14.4.4 JPQL에서 엔티티 그래프 사용**
 
-* JPQL에서 엔티티 그래프를 사용하는 방법은 em.find\(\)와 동일하게 힌트만 추가한다
+* JPQL에서 엔티티 그래프를 사용하는 방법은 em.find()와 동일하게 힌트만 추가한다
 
 ```java
   List<Order> resultList 
@@ -261,7 +261,7 @@ description: 이 글은 '자바 ORM 표준 JPA 프로그래밍' (김영한 저)'
 
 #### **14.4.5 동적 엔티티 그래프**
 
-* 엔티티 그래프를 동적으로 구성하려면 createEntityGraph\(\) 메소드 사용
+* 엔티티 그래프를 동적으로 구성하려면 createEntityGraph() 메소드 사용
 
 ```java
   EntityGraph<Order> graph = em.createEntityGraph(Order.class);
@@ -286,4 +286,3 @@ description: 이 글은 '자바 ORM 표준 JPA 프로그래밍' (김영한 저)'
 * fetchgraph, loadgraph
   * fetchgraph 속성은 엔티티 그래프에 선택한 속성만 함께 조회
   * loadgraph 속성은 엔티티 그래프에 선택한 속성뿐만 아니라 글로벌 fetch 모드가 FetchType.EAGER로 설정된 연관관계도 포함해서 함께 조
-

@@ -23,17 +23,17 @@ description: 이 글은 '처음 배우는 스프링 부트2' (김영재 저)' �
 
 ## 2. 스프링 부트 배치 이해하기
 
-* 배치 처리 절차\(4.0.0.RELEASE\)
-  * 읽기\(read\) : 데이터 저장소에서 특정 데이터 레코드를 읽음
-  * 처리\(processing\) : 원하는 방식으로 데이터를 가공/처리
-  * 쓰기\(write\) : 수정된 데이터를 다시 저장소에 저장
+* 배치 처리 절차(4.0.0.RELEASE)
+  * 읽기(read) : 데이터 저장소에서 특정 데이터 레코드를 읽음
+  * 처리(processing) : 원하는 방식으로 데이터를 가공/처리
+  * 쓰기(write) : 수정된 데이터를 다시 저장소에 저장
 
-![Job&#xC774;&#xB77C;&#xB294; &#xD558;&#xB098;&#xC758; &#xD070; &#xC77C;&#xAC10;\(Job\)&#xC5D0; &#xC5EC;&#xB7EC; &#xB2E8;&#xACC4;\(Step\)&#xB97C; &#xB450;&#xACE0;, &#xAC01; &#xB2E8;&#xACC4;&#xB97C; &#xBC30;&#xCE58;&#xC758; &#xAE30;&#xBCF8; &#xD750;&#xB984;&#xB300;&#xB85C; &#xAD6C;&#xD604;](../../.gitbook/assets/image.png)
+![Job이라는 하나의 큰 일감(Job)에 여러 단계(Step)를 두고, 각 단계를 배치의 기본 흐름대로 구현](../../.gitbook/assets/image.png)
 
 ### 1. Job
 
 * 배치 처리 과정을 하나의 단위로 표현한 객체. 전체 배치 처리에 있어 최상단 계층에 존재. 하나의 Job 객체가 여러개의 Step 인스턴스를 포함
-* JobBuilderFactory의 get\(\) 메서드로 JobBuilder를 생성 및 이용.
+* JobBuilderFactory의 get() 메서드로 JobBuilder를 생성 및 이용.
 * 새로운 JobBuilder 생성마다 JobBuilderFactory가 생성될 때 주입받은 JobRepository를 사용하도록 하여 모든 JobBuilder가 동일한 리포지토리를 사용하도록 함
 
 ```java
@@ -46,7 +46,7 @@ public Job simpleJob() {
 }
 ```
 
-* "simpleJob" 이라는 이름의 JobBuilder 생성 → \(simpleStep이라는 간단한 Step 인스턴스를 생성하여 반환하는 메서드를 매개변수로 사용\) → JobBuilder의 start 메서드로 SimpleJobBuilder를 리턴받고 → SimpleJobBuilder의 build 메서드를 호출하여 "simpleJob" 이라는 이름의 Job이 생성되어 반환 됨
+* "simpleJob" 이라는 이름의 JobBuilder 생성 → (simpleStep이라는 간단한 Step 인스턴스를 생성하여 반환하는 메서드를 매개변수로 사용) → JobBuilder의 start 메서드로 SimpleJobBuilder를 리턴받고 → SimpleJobBuilder의 build 메서드를 호출하여 "simpleJob" 이라는 이름의 Job이 생성되어 반환 됨
 
 ### 1.1 JobInstance
 
@@ -54,7 +54,7 @@ public Job simpleJob() {
 
 ### 1.2 JobExecution
 
-* JobInstance에 대한 한 번의 실행을 나타내는 객체. 어제 실패하고 오늘 성공하면 어제와 오늘의 JobExecution이 동일하지만, 오늘 성공하고 내일 성공하면 오늘과 내일의 JobExecution은 다른 것. Job 실행에 대한 정보\(JobInstance, 배치 실행 상태, 시작 시간, 끝난 시간, 실패 메시지 등의 정보\)를 담고 있다
+* JobInstance에 대한 한 번의 실행을 나타내는 객체. 어제 실패하고 오늘 성공하면 어제와 오늘의 JobExecution이 동일하지만, 오늘 성공하고 내일 성공하면 오늘과 내일의 JobExecution은 다른 것. Job 실행에 대한 정보(JobInstance, 배치 실행 상태, 시작 시간, 끝난 시간, 실패 메시지 등의 정보)를 담고 있다
 
 ### 1.3 JobParameters
 
@@ -81,4 +81,3 @@ public Job simpleJob() {
 ### 3.3 ItemWriter
 
 * 배치 데이터를 DB나 File로 저장
-
