@@ -42,4 +42,4 @@
   * [6장 객체와 자료 구조](skill-up/clean-code/6.md)
 * [Spring MVC](skill-up/spring-mvc/README.md)
   * [01. 웹 애플리케이션 이해](skill-up/spring-mvc/01..md)
-
+* [Effective java](skill-up/effective-java.md)
