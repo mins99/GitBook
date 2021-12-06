@@ -4,12 +4,7 @@
 
 ## Back-end
 
-* [JAVA](back-end/java/README.md)
-  * [Modern Java in Action](back-end/java/modern-java-in-action/README.md)
-    * [Chapter05 스트림 활용](back-end/java/modern-java-in-action/chapter05.md)
-    * [Chapter06 스트림으로 데이터 수집](back-end/java/modern-java-in-action/chapter06.md)
-    * [Chapter08 컬렉션 API 개선](back-end/java/modern-java-in-action/chapter08-api.md)
-    * [Chapter09 리팩터링, 테스팅, 디버깅](back-end/java/modern-java-in-action/chapter09.md)
+* [JAVA](back-end/java.md)
 * [Spring boot](back-end/spring-boot/README.md)
   * [스프링 부트 시작하기](back-end/spring-boot/undefined.md)
   * [스프링 부트 테스트하기](back-end/spring-boot/undefined-1.md)
@@ -35,6 +30,12 @@
 
 ## Skill Up
 
+* [Modern Java in Action](skill-up/modern-java-in-action/README.md)
+  * [Chapter01 자바 8, 9, 10, 11 : 무슨 일이 일어나고 있는가?](skill-up/modern-java-in-action/chapter01-8-9-10-11.md)
+  * [Chapter05 스트림 활용](skill-up/modern-java-in-action/chapter05.md)
+  * [Chapter06 스트림으로 데이터 수집](skill-up/modern-java-in-action/chapter06.md)
+  * [Chapter08 컬렉션 API 개선](skill-up/modern-java-in-action/chapter08-api.md)
+  * [Chapter09 리팩터링, 테스팅, 디버깅](skill-up/modern-java-in-action/chapter09.md)
 * [Clean Code](skill-up/clean-code/README.md)
   * [2장 의미 있는 이름](skill-up/clean-code/2.md)
   * [3장 함수](skill-up/clean-code/3.md)
