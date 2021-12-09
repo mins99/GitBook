@@ -32,6 +32,7 @@
 
 * [Modern Java in Action](skill-up/modern-java-in-action/README.md)
   * [Chapter01 자바 8, 9, 10, 11 : 무슨 일이 일어나고 있는가?](skill-up/modern-java-in-action/chapter01-8-9-10-11.md)
+  * [Chapter02 동작 파라미터화 코드 전달하기](skill-up/modern-java-in-action/chapter02.md)
   * [Chapter05 스트림 활용](skill-up/modern-java-in-action/chapter05.md)
   * [Chapter06 스트림으로 데이터 수집](skill-up/modern-java-in-action/chapter06.md)
   * [Chapter08 컬렉션 API 개선](skill-up/modern-java-in-action/chapter08-api.md)
