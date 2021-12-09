@@ -65,3 +65,36 @@ List<Apple> heavyApples = filterApples(inventory, null, 150, false);
 ```
 
 * true, false의 의미를 알 수 없고, 요구사항에 대해 유연한 대응이 불가능함
+
+### 2.2 동작 파라미터화
+
+* **프레디케이트** : 참 또는 거짓을 반환하는 함수
+
+![](<../../.gitbook/assets/image (1).png>)
+
+* 선택 조건을 결정하는 인터페이스를 정의하고, 조건에 따라 filter 메서드가 다르게 동작할 수 있도록 함
+  * 전략 디자인 패턴 - 알고리즘 전략을 캡슐화하는 알고리즘 패밀리를 정의해 둔 다음, 런타임에 알고리즘을 선택하는 기법
+* 동작 파라미터화를 통해 메서드가 다양한 동작(전략)을 받아서 내부적으로 다양한 동작을 수행할 수 있다
+
+#### 2.2.1 네 번째 시도 : 추상적 조건으로 필터링
+
+```
+public static List<Apple> filterApples(List<Apple> inventory, ApplePredicate p) {
+	List<Apple> result = new ArrayList<>();
+    for(Apple apple : inventory){
+        if(p.test(apple)){			// 프레디케이트 객체로 사과 검사 조건 캡슐화
+            result.add(apple);
+        }
+    }
+    return result;
+}
+```
+
+**코드/동작 전달하기**
+
+* 필요한대로 다양한 ApplePredicate를 만들어서 filterApples 메서드로 전달할 수 있게 되었다
+  * filterApples 메서드의 동작을 ApplePredicate 객체로서 파라미터화 함
+
+**한 개의 파라미터, 다양한 동작**
+
+* 동작 파라미터화의 강점 - 컬렉션 탐색 로직과 각 항목에 적용할 동작을 분리가능
