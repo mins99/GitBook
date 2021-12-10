@@ -98,3 +98,47 @@ public static List<Apple> filterApples(List<Apple> inventory, ApplePredicate p) 
 **한 개의 파라미터, 다양한 동작**
 
 * 동작 파라미터화의 강점 - 컬렉션 탐색 로직과 각 항목에 적용할 동작을 분리가능
+
+### 2.3 복잡한 과정 간소화&#x20;
+
+* filterApples 메서드의 단점 : ApplePredicate를 구현하는 여러 클래스를 정의한 다음 인스턴스화 해야 함. 번거롭고 시간 낭비이다
+* 클래스의 선언과 인스턴스화를 동시에 수행할 수 있는 **익명 클래스**를 활용해보자
+
+#### 2.3.2 다섯 번째 시도 : 익명 클래스 사용
+
+```
+List<Apple> redApples = filterApples(inventory, new ApplePredicate() {
+    public boolean test(Apple a) {
+        return RED.equals(a.getColor());
+    }
+});
+```
+
+* 선택 기준을 가리키는 boolean test(Apple a)를 구현해야 한다는 점은 변하지 않음
+
+#### 2.3.3 여섯 번째 시도 : 람다 표현식 사용
+
+```
+List<Apple> result = filterApples(inventory, (Apple apple) -> RED.equals(apple.getColor()));
+```
+
+* 간결해지면서 문제를 잘 설명하는 코드가 되었다!
+
+#### 2.3.4 일곱 번째 시도 : 리스트 형식으로 추상화
+
+* filter 메서드를 정의 하여 다양한 필터링 조건에 대응 -> 유연성과 간결함 두 마리 토끼를 모두 잡음
+
+```
+public static <T> List<T> filter(List<T> list, Predicate<T> p) {
+    List<T> result = new ArrayList<>();
+    for(T e : list) {
+        if(p.test(e)) {
+            result.add(e);
+        }
+    }
+    return result;
+}
+
+List<Apple> redApples = filter(inventory, (Apple apple) -> RED.equals(apple.getColor()));
+List<Integer> evenNumbers = filter(numbers, (Integer i) -> i%2 == 0);
+```
