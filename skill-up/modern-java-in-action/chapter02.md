@@ -142,3 +142,60 @@ public static <T> List<T> filter(List<T> list, Predicate<T> p) {
 List<Apple> redApples = filter(inventory, (Apple apple) -> RED.equals(apple.getColor()));
 List<Integer> evenNumbers = filter(numbers, (Integer i) -> i%2 == 0);
 ```
+
+### 2.4 실전 예제
+
+* 동작 파라미터화 패턴은 동작을 한 조각의 코드로 캡슐화한 다음 메서드로 전달해서 메서드의 동작을 파라미터화 함
+* 자바 API의 많은 메서드를 다양한 동작으로 파라미터화할 수 있다 - Comparator, Runnable, GUI
+
+#### 2.4.1 Comparator로 정렬하기
+
+* 개발자에게는 변화하는 요구사항에 쉽게 대응할 수 있는 다양한 정렬 동작을 수행할 수 있는 코드가 절실
+* 자바 8의 List에는 sort 메서드가 포함되어 있으며, java.util.Comparator 객체를 이용해서 sort의 동작을 파라미터화 할 수 있다
+
+```
+// Comparator
+inventory.sort(new Comparator<Apple>() {  
+	public int compare(Apple a1, Apple a2) {  
+		return a1.getWeight().compareTo(a2.getWeight());  
+	}  
+});
+
+// 람다
+inventory.sort((Apple a1, Apple a2) -> a1.getWeight().compareTo(a2.getWeight()));
+```
+
+#### 2.4.2 Runnable로 코드 블록 실행하기
+
+* 자바 스레드를 이용하면 병렬로 코드 블록 실행 가능
+* 여러 스레드가 각자 다른 코드를 실행할 수 있다
+* 자바에서는 Runnable 인터페이스를 이용해서 실행할 코드 블록을 지정할 수 있다
+
+```
+Thread t = new Thread(new Runnable() {
+	public void run() {
+		System.out.println("Hello World");
+	}
+});
+
+// 람다 표현식 이용
+Thread t = new Thread(() -> System.out.println("Hello World"));
+```
+
+#### 2.4.3 GUI 이벤트 처리하기
+
+* ExecutorService 인터페이스는 태스크를 스레드 풀로 보내고 결과를 Future로 저장할 수 있다는 점이 스레드와 Runnable을 이용하는 방식과는 다르다
+  * Callable 인터페이스를 이용해 결과를 반환하는 태스크를 만든다(Runnable의 업그레이드 버전)
+
+```
+ExecutorService executorService = Executors.newCachedThreadPool(); 
+Future<String> threadName = executorService.submit(new Callable<String>() { 
+	@Override  
+	public  String  call()  throws  Exception { 
+		return Thread.currentThread().getName(); 
+	} 
+});
+
+// 람다 표현식 이용
+Future<String> threadName = executorService.submit(() -> Thread.currentThread().getName());
+```
