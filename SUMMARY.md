@@ -44,6 +44,6 @@
   * [6장 객체와 자료 구조](skill-up/clean-code/6.md)
 * [Spring MVC](skill-up/spring-mvc/README.md)
   * [01. 웹 애플리케이션 이해](skill-up/spring-mvc/01..md)
-* [Effective java](skill-up/effective-java/README.md)
+* [Effective java](skill-up/effective-java.md)
   * [2장 객체 생성과 파괴](skill-up/effective-java/2/README.md)
     * [아이템1 - 생성자 대신 정적 팩터리 메서드를 고려하라](skill-up/effective-java/2/1.md)
