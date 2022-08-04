@@ -47,3 +47,4 @@
 * [Effective java](skill-up/effective-java.md)
   * [2장 객체 생성과 파괴](skill-up/effective-java/2/README.md)
     * [아이템1 - 생성자 대신 정적 팩터리 메서드를 고려하라](skill-up/effective-java/2/1.md)
+    * [아이템2 - 생성자에 매개변수가 많다면 빌더를 고려하라](skill-up/effective-java/2/2.md)
