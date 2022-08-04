@@ -90,4 +90,4 @@ public class PrivateConstructorTest {
 
 
 
-참 : [https://madplay.github.io/post/enforce-noninstantiability-with-private-constructor](https://madplay.github.io/post/enforce-noninstantiability-with-private-constructor)
+참고 : [https://madplay.github.io/post/enforce-noninstantiability-with-private-constructor](https://madplay.github.io/post/enforce-noninstantiability-with-private-constructor)
