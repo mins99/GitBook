@@ -53,3 +53,4 @@
     * [아이템5 - 자원을 직접 명시하지 말고 의존 객체 주입을 사용하라](skill-up/effective-java/2/5.md)
     * [아이템6 - 불필요한 객체 생성을 피하라](skill-up/effective-java/2/6.md)
     * [아이템7 - 다 쓴 참조 객체를 해제하라](skill-up/effective-java/2/7.md)
+    * [아이템8 - finalizer와 cleaner 사용을 피하라](skill-up/effective-java/2/8-finalizer-cleaner.md)
