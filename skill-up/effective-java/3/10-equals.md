@@ -268,3 +268,11 @@ public final class phoneNumber {
 * 꼭 필요한 경우가 아니라면 equals를 재정의하지 말자
 * 많은 경우에 Object의 equals가 원하는 비교를 정확히 수행한다
 * 재정의해야 할 때는 그 클래스의 핵심 필드 모두를 빠짐없이, 다섯 가지 규약(반사성, 대칭성, 추이성, 일관성, null 아님)을 확실히 지켜가며 비교해야 한다
+
+
+
+참고 : https://azderica.github.io/02-java-effective-java/&#x20;
+
+https://javabom.tistory.com/2&#x20;
+
+https://madplay.github.io/post/obey-the-general-contract-when-overriding-equals
