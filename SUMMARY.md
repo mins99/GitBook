@@ -55,3 +55,5 @@
     * [아이템7 - 다 쓴 참조 객체를 해제하라](skill-up/effective-java/2/7.md)
     * [아이템8 - finalizer와 cleaner 사용을 피하라](skill-up/effective-java/2/8-finalizer-cleaner.md)
     * [아이템9 - try-finally보다는 try-with-resources를 사용하라](skill-up/effective-java/2/9-try-finally-try-with-resources.md)
+  * [3장 모든 객체의 공통 메서드](skill-up/effective-java/3/README.md)
+    * [아이템10 - equals는 일반 규약을 지켜 재정의하라](skill-up/effective-java/3/10-equals.md)
