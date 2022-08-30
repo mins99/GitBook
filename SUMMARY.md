@@ -59,4 +59,5 @@
     * [아이템10 - equals는 일반 규약을 지켜 재정의하라](skill-up/effective-java/3/10-equals.md)
     * [아이템11 - equals를 재정의하려거든 hashCode도 재정의하라](skill-up/effective-java/3/11-equals-hashcode.md)
     * [아이템12 - toString을 항상 재정의하라](skill-up/effective-java/3/12-tostring.md)
-* [Toby's Spring](skill-up/tobys-spring.md)
+* [Toby's Spring](skill-up/tobys-spring/README.md)
+  * [1장 - 오브젝트와 의존관계](skill-up/tobys-spring/1.md)
